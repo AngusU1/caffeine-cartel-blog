@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://caffeinecartel.com/sitemap.xml
+
+# Block access to admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Allow all search engines to crawl images
+User-agent: *
+Allow: /Images/
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1

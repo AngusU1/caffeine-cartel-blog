@@ -29,6 +29,11 @@
     <meta property="twitter:title" content="Top 3 Coffee Shops in Central Edinburgh">
     <meta property="twitter:description" content="Discover Edinburgh's best hidden coffee shops with our expert local guide.">
     <meta property="twitter:image" content="https://caffeinecartel.com/Images/Edinburgh Coffee Blog Image.jpg">
+    
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="Images/Edinburgh Coffee Blog Image.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="styles.css" as="style">
+    
     <link rel="stylesheet" href="styles.css?v=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -106,7 +111,7 @@
 
                 <!-- Featured Image -->
                 <div class="post-featured-image edinburgh-featured">
-                    <img src="Images/Edinburgh Coffee Blog Image.jpg" alt="Best coffee shops in Central Edinburgh - specialty coffee guide" loading="lazy">
+                    <img src="Images/Edinburgh Coffee Blog Image.jpg" alt="Best coffee shops in Central Edinburgh - specialty coffee guide" width="600" height="400" fetchpriority="high">
                     <div class="image-caption"></div>
                 </div>
 

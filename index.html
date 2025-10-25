@@ -2,7 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Performance optimizations -->
+    <meta name="format-detection" content="telephone=no">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Caffeine Cartel - Expert Coffee Reviews, Brewing Tips & Coffee Culture</title>
     <meta name="description" content="Discover the world's best coffee with expert reviews, brewing guides, and coffee culture insights. From Edinburgh's hidden gems to Colombian coffee tours - join the Caffeine Cartel.">
     <meta name="keywords" content="coffee reviews, coffee brewing, coffee culture, Edinburgh coffee shops, Colombian coffee, coffee equipment, specialty coffee, coffee blog">
@@ -27,6 +37,8 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="Images/Caffeine Cartel Vintage Emblem transparent - Copy.png" as="image" type="image/png">
+    <link rel="preload" href="Images/salento-main.jpg" as="image" type="image/jpeg">
     
     <!-- Critical CSS -->
     <link rel="stylesheet" href="styles.css?v=1.0">
@@ -74,7 +86,7 @@
                 <div class="logo-section">
                     <div class="logo-placeholder">
                         <a href="index.html">
-                            <img src="Images/Caffeine Cartel Vintage Emblem transparent - Copy.png" alt="Caffeine Cartel - Expert Coffee Blog Logo" class="header-logo" loading="lazy">
+                            <img src="Images/Caffeine Cartel Vintage Emblem transparent - Copy.png" alt="Caffeine Cartel - Expert Coffee Blog Logo" class="header-logo" width="120" height="120" fetchpriority="high">
                         </a>
                     </div>
                 </div>
@@ -98,7 +110,7 @@
                 <h2 class="section-title">Featured Article</h2>
                 <article class="featured-article">
                     <div class="featured-image">
-                        <img src="Images/salento-main.jpg" alt="Colombian coffee plantation in Salento with mountain backdrop - Coffee guide" loading="lazy">
+                        <img src="Images/salento-main.jpg" alt="Colombian coffee plantation in Salento with mountain backdrop - Coffee guide" width="600" height="400" fetchpriority="high">
                         <div class="featured-badge">Featured</div>
                     </div>
                     <div class="featured-content">
@@ -122,7 +134,7 @@
                 <div class="blog-grid">
                     <article class="blog-card">
                         <div class="blog-image">
-                            <img src="Images/Edinburgh Coffee Blog Image.jpg" alt="Best coffee shops in Edinburgh Scotland - specialty coffee guide" loading="lazy">
+                            <img src="Images/Edinburgh Coffee Blog Image.jpg" alt="Best coffee shops in Edinburgh Scotland - specialty coffee guide" width="300" height="200" loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">
@@ -137,7 +149,7 @@
 
                     <article class="blog-card">
                         <div class="blog-image">
-                            <img src="Images/Blog Thumbnail - Starbucks Devil.jpg" alt="Why you should avoid Starbucks coffee - coffee quality analysis" loading="lazy">
+                            <img src="Images/Blog Thumbnail - Starbucks Devil.jpg" alt="Why you should avoid Starbucks coffee - coffee quality analysis" width="300" height="200" loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">
@@ -152,7 +164,7 @@
 
                     <article class="blog-card">
                         <div class="blog-image">
-                            <img src="Images/Science%20of%20coffee%20image%20(1).jpg" alt="Coffee science and flavor chemistry explained - coffee education" loading="lazy">
+                            <img src="Images/Science%20of%20coffee%20image%20(1).jpg" alt="Coffee science and flavor chemistry explained - coffee education" width="300" height="200" loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">
@@ -167,7 +179,7 @@
 
                     <article class="blog-card">
                         <div class="blog-image">
-                            <img src="Images/Coffee Thumbnail - What Machine to Buy.jpg" alt="Best coffee machines for beginners - espresso machine buying guide" loading="lazy">
+                            <img src="Images/Coffee Thumbnail - What Machine to Buy.jpg" alt="Best coffee machines for beginners - espresso machine buying guide" width="300" height="200" loading="lazy">
                         </div>
                         <div class="blog-content">
                             <div class="blog-meta">
@@ -445,6 +457,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.0"></script>
+    <script src="script.js?v=1.0" defer></script>
 </body>
 </html>

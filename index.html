@@ -7,6 +7,10 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
+    <!-- Cache Control Headers -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+    <meta http-equiv="Expires" content="Thu, 31 Dec 2025 23:59:59 GMT">
+    
     <!-- Performance optimizations -->
     <meta name="format-detection" content="telephone=no">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -41,7 +45,7 @@
     <link rel="preload" href="Images/salento-main.jpg" as="image" type="image/jpeg">
     
     <!-- Critical CSS -->
-    <link rel="stylesheet" href="styles.css?v=1.0">
+    <link rel="stylesheet" href="styles.css?v=2.0&cache=31536000">
     
     <!-- Optimized font loading -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -287,6 +291,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.0" defer></script>
+    <script src="script.js?v=2.0&cache=31536000" defer></script>
 </body>
 </html>

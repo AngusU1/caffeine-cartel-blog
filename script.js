@@ -419,7 +419,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Category filtering functionality
+// Category filtering functionality (used in index.html footer)
 function filterByCategory(category) {
     const blogCards = document.querySelectorAll('.blog-card');
     const featuredArticle = document.querySelector('.featured-article');
@@ -439,48 +439,44 @@ function filterByCategory(category) {
     });
     
     // Filter featured article
-    const featuredCategory = featuredArticle.querySelector('.category').textContent.trim();
-    if (featuredCategory === category) {
-        featuredArticle.style.display = 'block';
-        foundResults++;
-    } else {
-        featuredArticle.style.display = 'none';
+    if (featuredArticle) {
+        const featuredCategory = featuredArticle.querySelector('.category').textContent.trim();
+        if (featuredCategory === category) {
+            featuredArticle.style.display = 'block';
+            foundResults++;
+        } else {
+            featuredArticle.style.display = 'none';
+        }
     }
     
     // Show filter message
     showSearchMessage(`Showing ${foundResults} post(s) in "${category}" category`);
     
     // Scroll to results
-    document.querySelector('.main-content').scrollIntoView({
-        behavior: 'smooth'
-    });
-}
-
-// Add some interactive hover effects
-document.addEventListener('DOMContentLoaded', function() {
-    // Add parallax effect to featured image
-    const featuredImage = document.querySelector('.featured-image img');
-    if (featuredImage) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            featuredImage.style.transform = `translateY(${rate}px)`;
+    const mainContent = document.querySelector('.main-content');
+    if (mainContent) {
+        mainContent.scrollIntoView({
+            behavior: 'smooth'
         });
     }
-    
-    // Add typing effect to search placeholder
+}
+
+// Add typing effect to search placeholder
+document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
-    const placeholders = [
-        'Search articles...',
-        'Try "coffee machines"...',
-        'Search "Colombian coffee"...',
-        'Find "Cafes in Edinburgh"...'
-    ];
-    
-    let currentPlaceholder = 0;
-    
-    setInterval(() => {
-        currentPlaceholder = (currentPlaceholder + 1) % placeholders.length;
-        searchInput.placeholder = placeholders[currentPlaceholder];
-    }, 3000);
-}());
+    if (searchInput) {
+        const placeholders = [
+            'Search articles...',
+            'Try "coffee machines"...',
+            'Search "Colombian coffee"...',
+            'Find "Cafes in Edinburgh"...'
+        ];
+        
+        let currentPlaceholder = 0;
+        
+        setInterval(() => {
+            currentPlaceholder = (currentPlaceholder + 1) % placeholders.length;
+            searchInput.placeholder = placeholders[currentPlaceholder];
+        }, 3000);
+    }
+});

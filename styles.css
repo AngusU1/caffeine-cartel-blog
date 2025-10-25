@@ -1253,115 +1253,36 @@ body {
     transform: translateY(-3px);
 }
 
-/* Individual Image Control Classes */
-/* Height Options */
-.image-small img { height: 200px; }
-.image-medium img { height: 300px; }
-.image-large img { height: 400px; }
-.image-xl img { height: 500px; }
-.image-tall img { height: 600px; }
-
-/* Crop Position Options */
-.crop-top img { object-position: center top; }
-.crop-bottom img { object-position: center bottom; }
-.crop-left img { object-position: left center; }
-.crop-right img { object-position: right center; }
-.crop-center img { object-position: center center; }
-
-/* Fit Options */
-.fit-cover img { object-fit: cover; }
-.fit-contain img { object-fit: contain; background: #f8f9fa; }
-.fit-fill img { object-fit: fill; }
-
-/* Specific Image Classes - Customize these for your Salento photos */
-.salento-main img { 
-    height: 300px; 
-    object-fit: cover; 
-    object-position: center center; 
-}
-
-.andariego-exterior img { 
-    height: 320px; 
-    object-fit: cover; 
-    object-position: center center; 
-}
-
-.flat-whites img { 
+/* Keep only the used image classes */
+.science-featured img { 
     height: 280px; 
+    width: 100%; 
     object-fit: cover; 
     object-position: center center; 
 }
 
-.mirador-cafe img { 
-    height: 350px; 
-    object-fit: cover; 
-    object-position: center bottom; 
+.science-arabica { 
+    max-width: 65%; 
+    margin: 2.5rem auto; 
 }
 
-.mountain-view img { 
-    height: 400px; 
+.science-arabica img { 
+    height: 220px; 
+    width: 100%; 
+    object-fit: cover; 
+    object-position: center center; 
+}
+
+.science-mountain { 
+    max-width: 30%; 
+    margin: 2.5rem auto; 
+}
+
+.science-mountain img { 
+    height: 350px; 
+    width: 100%; 
     object-fit: cover; 
     object-position: center top; 
-}
-
-/* Specific Blog Post Image Controls */
-/* Salento Blog Images */
-.salento-featured img { height: 300px; width: 100%; object-fit: cover; object-position: center center; }
-.salento-cafe { max-width: 70%; margin: 2.5rem auto; }
-.salento-cafe img { height: 350px; width: 100%; object-fit: cover; object-position: center center; }
-.salento-coffee { max-width: 30%; margin: 2.5rem auto; }
-.salento-coffee img { height: 200px; width: 100%; object-fit: cover; object-position: center center; }
-.salento-view { max-width: 30%; margin: 2.5rem auto; }
-.salento-view img { height: 100px; width: 100%; object-fit: cover; object-position: center center; }
-
-/* Edinburgh Blog Images */
-.edinburgh-featured img { height: 300px; width: 100%; object-fit: cover; object-position: center center; }
-.edinburgh-source { max-width: 30%; margin: 2.5rem auto; }
-.edinburgh-source img { height: 1000px; width: 100%; object-fit: cover; object-position: center; }
-.edinburgh-origin { max-width: 30%; margin: 2.5rem auto; }
-.edinburgh-origin img { height: 260px; width: 100%; object-fit: cover; object-position: center center; }
-
-/* Starbucks Blog Images */
-.starbucks-featured img { height: 250px; width: 100%; object-fit: cover; object-position: center center; }
-.starbucks-beans img { height: 240px; width: 100%; object-fit: cover; object-position: center top; }
-.starbucks-barista { max-width: 35%; margin: 2.5rem auto; }
-.starbucks-barista img { height: 300px; width: 100%; object-fit: cover; object-position: center center; }
-
-/* Science Blog Images */
-.science-featured img { height: 280px; width: 100%; object-fit: cover; object-position: center center; }
-.science-arabica { max-width: 65%; margin: 2.5rem auto; }
-.science-arabica img { height: 220px; width: 100%; object-fit: cover; object-position: center center; }
-.science-mountain { max-width: 30%; margin: 2.5rem auto; }
-.science-mountain img { height: 350px; width: 100%; object-fit: cover; object-position: center top; }
-
-/* Coffee Machine Blog Images */
-.machine-featured img { height: 260px; width: 100%; object-fit: cover; object-position: center center; }
-.machine-sage { max-width: 30%; margin: 2.5rem auto; }
-.machine-sage img { height: 240px; width: 100%; object-fit: cover; object-position: center center; }
-.machine-gaggia { max-width: 30%; margin: 2.5rem auto; }
-.machine-gaggia img { height: 280px; width: 100%; object-fit: cover; object-position: center center; }
-.machine-lamarzocco { max-width: 30%; margin: 2.5rem auto; }
-.machine-lamarzocco img { height: 300px; width: 100%; object-fit: cover; object-position: center bottom; }
-
-/* Alternative: Show full images without cropping */
-.show-full-image img {
-    object-fit: contain !important;
-    background: #f8f9fa;
-    height: 300px !important;
-}
-
-/* Global image adjustments to reduce zoom */
-.post-featured-image img {
-    height: 300px !important;
-    object-fit: cover;
-    object-position: center center;
-    display: block;
-}
-
-.content-image img {
-    height: 280px !important;
-    object-fit: cover;
-    object-position: center;
 }
 
 /* Responsive styles for Blog Post */
@@ -1428,188 +1349,16 @@ body {
     .post-share {
         width: 100%;
     }
-}
-
-/* Newsletter CTA Section - Optimized */
-.newsletter-cta-section {
-    background: #f8f9fa;
-    padding: 3rem 0;
-    text-align: center;
-    border-top: 1px solid #dee2e6;
-}
-
-.newsletter-cta-content {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.newsletter-cta-content h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #2c1810;
-    margin-bottom: 0.5rem;
-}
-
-.newsletter-cta-content > p {
-    font-size: 1rem;
-    color: #6c757d;
-    margin-bottom: 1.5rem;
-}
-
-/* Compact signup counter */
-.newsletter-cta-section .signup-counter {
-    background: rgba(184, 134, 11, 0.1);
-    border: 1px solid rgba(184, 134, 11, 0.3);
-    border-radius: 12px;
-    padding: 0.5rem 1rem;
-    display: inline-block;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-    color: #333;
-}
-
-.newsletter-cta-section .signup-counter span {
-    color: #B8860B;
-    font-weight: 700;
-}
-
-/* Optimized form styling */
-#mc_embed_signup {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#mc_embed_signup form {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: stretch;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-#mc_embed_signup .mc-field-group {
-    flex: 1;
-    margin-bottom: 0;
-    display: flex;
-    align-items: stretch;
-}
-
-#mc_embed_signup input[type="email"] {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 25px;
-    font-size: 16px;
-    background: white;
-    color: #333;
-    font-family: inherit;
-}
-
-#mc_embed_signup input[type="email"]:focus {
-    outline: none;
-    border-color: #B8860B;
-    box-shadow: 0 0 0 2px rgba(184, 134, 11, 0.2);
-}
-
-#mc_embed_signup button,
-#mc_embed_signup .button {
-    background: linear-gradient(135deg, #B8860B, #9A7B0A);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: inherit;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-#mc_embed_signup button:hover,
-#mc_embed_signup .button:hover {
-    background: #9A7B0A;
-    transform: translateY(-1px);
-}
-
-/* Hide elements we don't need - Enhanced */
-#mc_embed_signup h2,
-#mc_embed_signup .indicates-required,
-#mc_embed_signup label,
-#mc_embed_signup .mc-field-group label {
-    display: none !important;
-    visibility: hidden !important;
-}
-
-/* Ensure proper spacing without labels */
-#mc_embed_signup .mc-field-group {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-}
-
-/* Additional Mobile Optimizations */
-@media (max-width: 768px) {
-    /* Header logo mobile optimization */
-    .header-logo {
-        height: 80px;
-    }
     
-    /* Newsletter section mobile optimization */
-    .newsletter-cta-section {
-        padding: 2rem 0;
-    }
-    
-    .newsletter-cta-content h2 {
-        font-size: 1.75rem;
-        margin-bottom: 1rem;
-    }
-    
-    .newsletter-cta-content p {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .signup-counter {
-        margin: 1rem auto 1.5rem auto;
-    }
-    
-    /* Let images scale naturally on phones */
-    .featured-image img,
-    .blog-image img,
-    .post-featured-image img,
-    .content-image img,
-    .story-image img,
-    .team-image img {
-      width: 100% !important;
-      height: auto !important;
-      object-fit: cover;
-    }
-  
-    /* Override very tall/specific images */
-    .edinburgh-source img,
-    .salento-featured img,
-    .science-mountain img {
-      height: auto !important;
-    }
-  
-    /* Allow narrow wrappers to use full width on mobile */
-    .salento-cafe,
-    .salento-coffee,
-    .salento-view,
-    .edinburgh-source,
-    .edinburgh-origin,
-    .starbucks-barista,
+    /* Mobile responsive adjustments for science blog images */
     .science-arabica,
-    .science-mountain,
-    .machine-sage,
-    .machine-gaggia,
-    .machine-lamarzocco {
-      max-width: 100% !important;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
+    .science-mountain {
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .science-mountain img {
+        height: auto !important;
     }
 }

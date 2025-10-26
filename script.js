@@ -461,7 +461,7 @@ function filterByCategory(category) {
     }
 }
 
-// Add typing effect to search placeholder
+// Add typing effect to search placeholder (optimized for mobile)
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
@@ -474,9 +474,17 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let currentPlaceholder = 0;
         
-        setInterval(() => {
-            currentPlaceholder = (currentPlaceholder + 1) % placeholders.length;
-            searchInput.placeholder = placeholders[currentPlaceholder];
-        }, 3000);
+        // Use requestAnimationFrame to prevent forced reflows
+        function updatePlaceholder() {
+            requestAnimationFrame(() => {
+                currentPlaceholder = (currentPlaceholder + 1) % placeholders.length;
+                searchInput.placeholder = placeholders[currentPlaceholder];
+            });
+        }
+        
+        // Only run on desktop to avoid mobile performance issues
+        if (window.innerWidth > 768) {
+            setInterval(updatePlaceholder, 3000);
+        }
     }
 });

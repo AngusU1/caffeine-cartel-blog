@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Optimizer - Caffeine Cartel</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .optimizer-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c1810;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .upload-area {
+            border: 2px dashed #B8860B;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            background: #fefefe;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: #9A7B0A;
+            background: #fffef8;
+        }
+        
+        .upload-area.dragover {
+            border-color: #9A7B0A;
+            background: #fffef0;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        .upload-btn {
+            background: linear-gradient(135deg, #B8860B, #9A7B0A);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(184, 134, 11, 0.4);
+        }
+        
+        .quality-slider {
+            margin: 20px 0;
+        }
+        
+        .quality-slider label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .quality-slider input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .results {
+            margin-top: 30px;
+        }
+        
+        .image-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .image-preview {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background: white;
+        }
+        
+        .image-preview img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 4px;
+        }
+        
+        .image-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .savings {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .download-btn {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        
+        .download-btn:hover {
+            background: #218838;
+        }
+        
+        .instructions {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .instructions h3 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+        
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="optimizer-container">
+        <h1>🖼️ Image Optimizer for Caffeine Cartel</h1>
+        
+        <div class="instructions">
+            <h3>📋 How to Use:</h3>
+            <ol>
+                <li>Upload your blog thumbnail images (PNG, JPG)</li>
+                <li>Adjust quality slider (80-90% recommended)</li>
+                <li>Download optimized WebP versions</li>
+                <li>Replace original images in your Images folder</li>
+                <li>Update HTML to use WebP with fallback</li>
+            </ol>
+        </div>
+        
+        <div class="upload-area" id="uploadArea">
+            <p>📁 Drag & drop images here or click to select</p>
+            <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                Choose Images
+            </button>
+            <input type="file" id="fileInput" multiple accept="image/*">
+        </div>
+        
+        <div class="quality-slider">
+            <label for="qualitySlider">WebP Quality: <span id="qualityValue">85</span>%</label>
+            <input type="range" id="qualitySlider" min="60" max="100" value="85">
+            <small>Lower = smaller file size, Higher = better quality</small>
+        </div>
+        
+        <div class="results" id="results" style="display: none;">
+            <h3>🎯 Optimization Results</h3>
+            <div id="imageComparisons"></div>
+        </div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const qualitySlider = document.getElementById('qualitySlider');
+        const qualityValue = document.getElementById('qualityValue');
+        const results = document.getElementById('results');
+        const imageComparisons = document.getElementById('imageComparisons');
+
+        // Update quality display
+        qualitySlider.addEventListener('input', function() {
+            qualityValue.textContent = this.value;
+        });
+
+        // Drag and drop functionality
+        uploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            processFiles(files);
+        });
+
+        fileInput.addEventListener('change', function() {
+            processFiles(this.files);
+        });
+
+        function processFiles(files) {
+            imageComparisons.innerHTML = '';
+            results.style.display = 'block';
+            
+            Array.from(files).forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    optimizeImage(file);
+                }
+            });
+        }
+
+        function optimizeImage(file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    // Create canvas for optimization
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    // Calculate optimal dimensions (max 800px width for thumbnails)
+                    let { width, height } = img;
+                    const maxWidth = 800;
+                    const maxHeight = 600;
+                    
+                    if (width > maxWidth) {
+                        height = (height * maxWidth) / width;
+                        width = maxWidth;
+                    }
+                    
+                    if (height > maxHeight) {
+                        width = (width * maxHeight) / height;
+                        height = maxHeight;
+                    }
+                    
+                    canvas.width = width;
+                    canvas.height = height;
+                    
+                    // Draw optimized image
+                    ctx.drawImage(img, 0, 0, width, height);
+                    
+                    // Convert to WebP
+                    const quality = qualitySlider.value / 100;
+                    const webpDataUrl = canvas.toDataURL('image/webp', quality);
+                    
+                    // Calculate file sizes
+                    const originalSize = file.size;
+                    const optimizedSize = Math.round((webpDataUrl.length - 22) * 3 / 4); // Approximate WebP size
+                    const savings = originalSize - optimizedSize;
+                    const savingsPercent = Math.round((savings / originalSize) * 100);
+                    
+                    // Create comparison display
+                    createComparison(file, e.target.result, webpDataUrl, originalSize, optimizedSize, savings, savingsPercent);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function createComparison(file, originalDataUrl, webpDataUrl, originalSize, optimizedSize, savings, savingsPercent) {
+            const comparisonDiv = document.createElement('div');
+            comparisonDiv.innerHTML = `
+                <div class="image-comparison">
+                    <div class="image-preview">
+                        <h4>Original</h4>
+                        <img src="${originalDataUrl}" alt="Original">
+                        <div class="image-info">
+                            <strong>${file.name}</strong><br>
+                            Size: ${formatFileSize(originalSize)}<br>
+                            Format: ${file.type}
+                        </div>
+                    </div>
+                    <div class="image-preview">
+                        <h4>Optimized WebP</h4>
+                        <img src="${webpDataUrl}" alt="Optimized">
+                        <div class="image-info">
+                            <strong>${file.name.replace(/\.[^/.]+$/, '.webp')}</strong><br>
+                            Size: ${formatFileSize(optimizedSize)}<br>
+                            Format: image/webp
+                        </div>
+                        <button class="download-btn" onclick="downloadImage('${webpDataUrl}', '${file.name.replace(/\.[^/.]+$/, '.webp')}')">
+                            Download WebP
+                        </button>
+                    </div>
+                </div>
+                <div class="savings">
+                    💾 Saved ${formatFileSize(savings)} (${savingsPercent}% reduction)
+                </div>
+            `;
+            imageComparisons.appendChild(comparisonDiv);
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        }
+
+        function downloadImage(dataUrl, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = dataUrl;
+            link.click();
+        }
+    </script>
+</body>
+</html>

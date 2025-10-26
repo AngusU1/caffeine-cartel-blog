@@ -14,8 +14,37 @@
     <!-- Performance optimizations -->
     <meta name="format-detection" content="telephone=no">
     
-    <!-- Mobile performance optimizations -->
+    <!-- Critical inline CSS to prevent layout shifts -->
     <style>
+        /* Critical styles to prevent layout shifts */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            font-display: swap;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-logo {
+            height: 100px;
+            width: auto;
+        }
+        
         /* Prevent layout shifts and reflows on mobile */
         @media (max-width: 768px) {
             * {
@@ -27,16 +56,19 @@
                 will-change: auto;
             }
             
-            /* Prevent reflows from font loading */
-            body {
-                font-display: swap;
+            .header-logo {
+                height: 80px;
             }
         }
     </style>
+    <!-- Enhanced preconnect hints for critical request chain optimization -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//digitalasset.intuit.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://digitalasset.intuit.com" crossorigin>
     <title>Caffeine Cartel - Expert Coffee Reviews, Brewing Tips & Coffee Culture</title>
     <meta name="description" content="Discover the world's best coffee with expert reviews, brewing guides, and coffee culture insights. From Edinburgh's hidden gems to Colombian coffee tours - join the Caffeine Cartel.">
     <meta name="keywords" content="coffee reviews, coffee brewing, coffee culture, Edinburgh coffee shops, Colombian coffee, coffee equipment, specialty coffee, coffee blog">
@@ -58,14 +90,14 @@
     <meta property="twitter:description" content="Discover the world's best coffee with expert reviews, brewing guides, and coffee culture insights.">
     <meta property="twitter:image" content="https://caffeinecartel.com/Images/Caffeine Cartel Vintage Emblem.png">
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-    <link rel="preload" href="Images/Caffeine Cartel Vintage Emblem transparent - Copy.png" as="image" type="image/png">
+    <!-- Preload critical resources with high priority -->
+    <link rel="preload" href="styles.css?v=2.0&cache=31536000" as="style" onload="this.onload=null;this.rel='stylesheet'" fetchpriority="high">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" fetchpriority="high">
+    <link rel="preload" href="Images/Caffeine Cartel Vintage Emblem transparent - Copy.png" as="image" type="image/png" fetchpriority="high">
     <link rel="preload" href="Images/salento-main.jpg" as="image" type="image/jpeg" fetchpriority="high">
     
-    <!-- Critical CSS -->
-    <link rel="stylesheet" href="styles.css?v=2.0&cache=31536000">
+    <!-- Critical CSS - Load asynchronously to avoid blocking -->
+    <noscript><link rel="stylesheet" href="styles.css?v=2.0&cache=31536000"></noscript>
     
     <!-- Optimized font loading -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">

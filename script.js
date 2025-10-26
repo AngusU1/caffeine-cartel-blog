@@ -54,19 +54,21 @@ function performSearch() {
     const featuredArticle = document.querySelector('.featured-article');
     let foundResults = 0;
     
-    // Search through blog cards
-    blogCards.forEach(card => {
-        const title = card.querySelector('.blog-title').textContent.toLowerCase();
-        const excerpt = card.querySelector('.blog-excerpt').textContent.toLowerCase();
-        const category = card.querySelector('.category').textContent.toLowerCase();
-        
-        if (title.includes(searchTerm) || excerpt.includes(searchTerm) || category.includes(searchTerm)) {
-            card.style.display = 'block';
-            card.style.animation = 'fadeIn 0.5s ease-in';
-            foundResults++;
-        } else {
-            card.style.display = 'none';
-        }
+    // Search through blog cards - optimized to prevent reflows
+    requestAnimationFrame(() => {
+        blogCards.forEach(card => {
+            const title = card.querySelector('.blog-title').textContent.toLowerCase();
+            const excerpt = card.querySelector('.blog-excerpt').textContent.toLowerCase();
+            const category = card.querySelector('.category').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || excerpt.includes(searchTerm) || category.includes(searchTerm)) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeIn 0.5s ease-in';
+                foundResults++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
     });
     
     // Search featured article
@@ -425,17 +427,19 @@ function filterByCategory(category) {
     const featuredArticle = document.querySelector('.featured-article');
     let foundResults = 0;
     
-    // Filter blog cards
-    blogCards.forEach(card => {
-        const cardCategory = card.querySelector('.category').textContent.trim();
-        
-        if (cardCategory === category) {
-            card.style.display = 'block';
-            card.style.animation = 'fadeIn 0.5s ease-in';
-            foundResults++;
-        } else {
-            card.style.display = 'none';
-        }
+    // Filter blog cards - optimized to prevent reflows
+    requestAnimationFrame(() => {
+        blogCards.forEach(card => {
+            const cardCategory = card.querySelector('.category').textContent.trim();
+            
+            if (cardCategory === category) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeIn 0.5s ease-in';
+                foundResults++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
     });
     
     // Filter featured article
@@ -483,7 +487,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Only run on desktop to avoid mobile performance issues
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 768 && !('ontouchstart' in window)) {
             setInterval(updatePlaceholder, 3000);
         }
     }

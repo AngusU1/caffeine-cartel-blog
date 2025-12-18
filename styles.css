@@ -1077,8 +1077,9 @@ body {
 
 .post-featured-image img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
     object-position: center center;
     display: block;
 }
@@ -1135,8 +1136,9 @@ body {
 
 .content-image img {
     width: 100%;
-    height: 280px;
-    object-fit: cover;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
 }
 
 .content-image .image-caption {
@@ -1263,9 +1265,10 @@ body {
 
 /* Keep only the used image classes */
 .science-featured img { 
-    height: 280px; 
+    height: auto; 
+    max-height: 350px;
     width: 100%; 
-    object-fit: cover; 
+    object-fit: contain; 
     object-position: center center; 
 }
 
@@ -1275,9 +1278,10 @@ body {
 }
 
 .science-arabica img { 
-    height: 220px; 
+    height: auto; 
+    max-height: 280px;
     width: 100%; 
-    object-fit: cover; 
+    object-fit: contain; 
     object-position: center center; 
 }
 
@@ -1287,10 +1291,11 @@ body {
 }
 
 .science-mountain img { 
-    height: 350px; 
+    height: auto; 
+    max-height: 400px;
     width: 100%; 
-    object-fit: cover; 
-    object-position: center top; 
+    object-fit: contain; 
+    object-position: center center; 
 }
 
 /* Responsive styles for Blog Post */
@@ -1318,7 +1323,7 @@ body {
     }
     
     .post-featured-image img {
-        height: 250px;
+        max-height: 300px;
     }
     
     .image-caption {
@@ -1368,5 +1373,6 @@ body {
     
     .science-mountain img {
         height: auto !important;
+        max-height: 350px !important;
     }
 }

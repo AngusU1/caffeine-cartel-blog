@@ -2,43 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <!-- Homepage -->
     <url>
-        <loc>https://caffeinecartel.com/</loc>
-        <lastmod>2025-09-28</lastmod>
+        <loc>https://caffeinecartel.org/</loc>
+        <lastmod>2025-12-21</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     
     <!-- Blog Posts -->
     <url>
-        <loc>https://caffeinecartel.com/Coffee-Shops-Edinburgh.html</loc>
+        <loc>https://caffeinecartel.org/Winchester Roast.html</loc>
+        <lastmod>2025-12-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://caffeinecartel.org/Coffee-Shops-Edinburgh.html</loc>
         <lastmod>2025-09-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://caffeinecartel.com/Never-Drink-Starbucks.html</loc>
+        <loc>https://caffeinecartel.org/Never-Drink-Starbucks.html</loc>
         <lastmod>2025-09-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://caffeinecartel.com/The-Science-Of-Coffee.html</loc>
+        <loc>https://caffeinecartel.org/The-Science-Of-Coffee.html</loc>
         <lastmod>2025-09-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://caffeinecartel.com/Best-Coffee-Machines.html</loc>
+        <loc>https://caffeinecartel.org/Best-Coffee-Machines.html</loc>
         <lastmod>2025-09-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://caffeinecartel.com/Salento-Coffee-Guide.html.html</loc>
+        <loc>https://caffeinecartel.org/Mushroom_Coffee.html</loc>
+        <lastmod>2026-01-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://caffeinecartel.org/Salento-Coffee-Guide.html.html</loc>
         <lastmod>2025-09-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -46,22 +60,22 @@
     
     <!-- Static Pages -->
     <url>
-        <loc>https://caffeinecartel.com/our-story.html</loc>
-        <lastmod>2025-09-28</lastmod>
+        <loc>https://caffeinecartel.org/our-story.html</loc>
+        <lastmod>2025-12-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     
     <url>
-        <loc>https://caffeinecartel.com/team.html</loc>
-        <lastmod>2025-09-28</lastmod>
+        <loc>https://caffeinecartel.org/team.html</loc>
+        <lastmod>2025-12-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     
     <url>
-        <loc>https://caffeinecartel.com/contact.html</loc>
-        <lastmod>2025-09-28</lastmod>
+        <loc>https://caffeinecartel.org/contact.html</loc>
+        <lastmod>2025-12-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
